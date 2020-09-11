@@ -1,0 +1,359 @@
+%
+% sheet.tex - A condensed study guide for STAT400 at the University of Maryland
+% 
+% Copyright (C) 2019-2020 Donald Isaac
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either versiou 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program. If not, see <https://www.gnu.org/licenses/>
+%
+\documentclass[10pt,twoside,a4paper]{article}
+
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{fancyhdr}
+\usepackage{scrextend}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{sectsty}
+\usepackage{framed}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[margin=0.75in]{geometry}
+
+% Version of this sheet
+\newcommand{\version}{v1.0.0}
+
+\begin{document}
+\allsectionsfont{\fontsize{11}{12}\selectfont}
+
+\title{%
+	STAT 400 \\
+	\large Study Guide
+	% \small \version
+}
+\author{Donald Isaac}
+
+% Create heading
+\pagestyle{fancy}
+\lhead{STAT 400~-~Study Guide}
+\chead{}
+\rhead{\version} 
+\lfoot{Copyright~\textcopyright~2019-2020 Donald Isaac}
+
+\cfoot{} 
+\rfoot{\thepage}
+
+% Page Contents
+\begin{multicols*}{2}
+	% \noindent\fbox{
+	% 	\parbox{\linewidth}{\maketitle}
+	% }
+	
+	\begin{framed}
+		\maketitle
+	\end{framed}
+	\thispagestyle{fancy}
+	\begin{flushleft}
+
+	\section{Introduction}
+	This study guide contains formulas and brief explanations for concepts
+	from STAT 400 at the University of Maryland.
+	\vspace{.5cm}
+
+	Copyright~\textcopyright~2019-2020 Donald Isaac
+	
+	This program comes with ABSOLUTELY NO WARRANTY; for details see the GNU GPLv3
+	License. This is free software, and you are welcome to redistribute it under
+	certain conditions; see the License for more details.
+
+	This program is licensed under the GNU GPLv3 License. You should have 
+	received a copy of the GNU General Public License along with this program.
+	If not, see \href{https://www.gnu.org/licenses/}{https://www.gnu.org/licenses/}.
+	
+	% ==========================================================================
+	% =============================== CHAPTER 2 ================================
+	% ==========================================================================
+
+	\section{Probability}
+	% 2.1 Sample Spaces and Events
+	\subsection{Sample Spaces and Events}
+	$$\forall E_k \in S, \quad P(E_k) = \frac{N(E_k)}{N(S)}$$\\
+	$$n \coloneqq |S|,\quad P(S) = \sum^{n}_{k=0}P(E_k) = 1$$
+
+	% 2.2 Properties of Probability
+	\subsection{Properties of Probability}
+	$$P(E^c) = 1 - P(E)$$
+	$$P(B \cap C) = P(A \cap B \cap C) + P(A^c \cap B \cap C)$$
+	\linebreak
+	When events $A,\; B$ are independent:
+	$$P(A \cup B) = P(A) + P(B) - P(A \cup B)$$
+	$$P(A \cap B) = P(A)P(B)$$
+	\linebreak
+	When disjoint:
+	$$P(a \cup B) = P(A) + P(B)$$
+	$$P(A \cap B) = \phi$$
+
+	% 2.3 Permutations and Combinations
+	\subsection{Permutations and Combinations}
+	$$\prescript{}{n}{P_k} = \frac{n!}{(n-k)!}$$
+	$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+	% 2.4 Conditional Probability, Bayes' Theorem
+	\subsection{Conditional Probability \& Bayes' Theorem}
+	The probability of event $A$ occurring, given that $B$ has occurred, is
+	$$P(A|B) = \frac{P \cap B}{P(B)} = \frac{P(B|A)}{P(B)}P(A)$$
+	When $A$ and $B$ are independent, this reduces to
+	$$P(A|B) = P(A)$$
+
+
+	% \columnbreak
+
+	% 2.5 Independence of Events
+	\subsection{Independence of Events}
+
+	% \end{flushleft}
+
+	% ==========================================================================
+	% =============================== CHAPTER 3 ================================
+	% ==========================================================================
+
+	\section{Discrete Random Variables and Probability Distributions}
+
+	% 3.1
+	\subsection{Random Variables}
+	\textbf{Random Variable (rv):} A variable measuring some characteristic of an
+	experiment's outcomes and is usually denoted as $X$. Can be discrete or continuous
+	\textbf{Bernoulli Random Variable:} A discrete rv who's value can only
+	be $0$ or $1$.
+
+	% 3.2
+	\subsection{Probability Distributions}
+	\textbf{Probability Mass Function (pmf):} 
+	The \textit{pmf} of $X$ specifies the probability of observing a specific
+	outcome value $x$ of an experiment. More formally, the \textit{pmf} $p(x)$
+	is defined for all x such that
+	\[
+		p(x) = P(X = x) = P(\forall \gamma \in S : X(\gamma) = x)
+	\]
+
+	\textbf{Cumulative Distribution Function (cmf):} The \textit{cmf} $F(x)$ for
+	a discrete rv $X$ is the probability that $X$ will be at most $x$.
+	\[
+		F(x) \coloneqq P(X \leq x) = \sum_{y|y \leq x} p(y)
+	\]
+
+	% 3.3
+	\subsection{Expected Value, Variance, and Std. Deviation}
+	% 3.4
+	\textbf{Expected Value:} The \textit{expected value} of the discrete rv $X$ is it's average
+	value. If the set of all possible outcomes of $X$ is $V$, and outcome $x \in V$ has
+	a value function $h(x)$, then
+	$$ E(X) = \mu_X = \sum_{x \in V} h(x)p(x)$$
+
+	\textbf{Variance:} Expresses the amount of variability for values of $X$.
+	$$V(X) = \sum_{x \in V}(h(x) - \mu_X)^2 p(x) = E\big[ (X - \mu_X) \big]$$
+	$x$ can be substituted for $h(x)$ when $h(x) = x$.	
+	\textbf{Standard Deviation:} The square root of the variance.
+	$$\sigma_X = \sqrt{V(X)}$$
+
+	Using the formula for the standard deviation, the variance formula can be 
+	reduced to
+	$$V(X) = \sigma_{X}^2 = \Big[ \sum_{x \in V}x^2 * p(x) \Big] - \mu_X^2 = E(X^2) - [E(X)]^2$$
+
+	When $h(x)$ is linear such that $h(x) = aX + b$, the expected value formula
+	can be reduced to
+	$$E(h(x)) = a * E(X) + b$$
+	And variance / std. deviation can be reduced to
+	$$V(h(x)) = a^2 * \sigma_{X}^2 \rightarrow \sigma{h(x) = |a| * \sigma_X}$$
+	\subsection{The Binomial Probability Distribution}
+	\textbf{Binomial Experiment:} An experiment is a binomial experiment if:
+	it consists of a fixed number of \textit{trials} $n$; it results in one of two 
+	possible outcomes, denoted as $S$ and $F$; each trial is independent from one another;
+	and the probability of success $p = P(S)$ is constant across each trial.
+
+	\textbf{Binomial Distribution: } The approximate probability model for a 
+	sampling without replacement from a population of $n$ Bernoulli trial outcomes.
+	Let the outcome of a $S$ trial with a probability $p$ be denoted as the
+	\textit{binomial variable} $X$. Then, the \textit{pmf} of $X$ $b(x; n, p)$ is
+	\[
+		P(X = x) = b(x; n, p) = 
+        \begin{cases}
+                \binom{n}{x}p^x(1-p)^{n-x} \ x \leq n \\
+                0 \hspace{1cm} otherwise 
+        \end{cases}
+	\]
+	Which is (\textit{the number of $n$-length sequences consisting of $x$ $S$'s}) times 
+	(\textit{the probability of such a sequence}). When $X$ is a binomial rv
+	for an experiment with $n$ trials, each with a $S$ probability $p$, it is
+	denoted as $X \sim Bin(n, p)$. The \textit{cdf} for $X \sim Bin(n, p)$ is
+	\[
+		F(x; n, p) = P(X \leq x) = \sum^{x}_{y=0} b(y; n, p) \ \forall x \leq n
+	\]
+	furthermore, the expected value, std. deviation, and variance of $X$ if $X \sim Bin(n, p)$ is
+	$$E(X) = np,\ V(X) = np(1-p) \rightarrow \sigma_X = \sqrt{npq}$$
+	where $P(F) = q = 1 - p$.
+	% 3.5
+	\subsection{Hypergeometric and Negative Binomial Distributions}
+
+	A \textbf{Hypergeometric Distribution} of a discrete random variable $X$ discribes
+	the probability of $k$ successes in $n$ draws, without replacement.
+
+	The hypergeometric distribution pmf is
+
+	$$P(X=k) = \cfrac{ {a \choose k} {n-a \choose r-k} }{ {n \choose r} }$$
+
+	\subsection{Poisson}
+	A discrete random variable X is said to follow a Poisson distribution
+	with parameter $\mu$, if it has probability distribution 
+	$$ P(X = x) = p(x; \mu) = \cfrac{e^{-\mu}*\mu^x}{x!} $$
+
+	Note that $E(X) = V(X) = \mu$
+
+	$\mu = \lambda$ = average number of events. $\lambda$ is the poisson constant.
+	When given a time rate $r$ for $x$ events to happen, then $\lambda = rt$ and
+
+	$$ P(X = x) = p(x; r,t) = e^{-rt}\cfrac{(rt)^x}{x!} $$
+
+	% ==========================================================================
+	% =============================== CHAPTER 4 ================================
+	% ==========================================================================
+
+	\section{Continuous Random Variables and Probability Distributions}
+
+	\subsection{Continuous Random Variables}
+	The \textbf{probability distribution} or \textbf{probability density function}
+	for a continuous rv $X$ is a function $f(x)$ such that
+
+	$$P(a \leq X \leq b) = \int_{a}^{b} f(x) dx$$
+
+	\subsection{Cumulative Distribution Functions and Expected Value}
+	\subsection{Normal Random Variables}
+	A continuous rv $X$ with an expected value $\mu$ and standard deviation $\sigma$
+	is said to be \textit{Normally Distributed} when it's pmf matches the following
+	formula
+	$$f(x; \mu, \sigma) = \cfrac{1}{\sigma\sqrt{2\pi}}~e^{-\cfrac{1}{2}\Big(\cfrac{x - \mu}{\sigma}\Big)^2}$$
+	The special case when $\mu = 0$ and $\sigma = 1$ is called the
+	\textit{Standard Normal Distribution} and has a pmf of 
+	$$ \Phi(z) = f(z; 0, 1) = \cfrac{1}{\sqrt{2\pi}}~e^{-\cfrac{z^2}{2}} $$
+
+	The Z score is the number of standard deviations an rv $X$ is from the mean.
+
+	$$ z = \frac{X - \mu}{\sigma} $$
+
+	The cdf of a non-standard distribution can be found by converting $X$ to $Z$
+
+	$$ P(a \leq X \leq b) = P(\frac{a - \mu}{\sigma} \leq Z \leq \frac{b - \mu}{\sigma})$$
+	$$  = \Phi(\frac{a - \mu}{\sigma}) - \Phi(\frac{b - \mu}{\sigma}) $$
+
+	\subsection{Exponential and Gamma Distributions}
+	A continuous rv $X$ has an \textit{Exponential Distribution} if the pdf of $X$ is
+
+	$$ \forall x \in \mathbb{R}^+,~f(x; \lambda) = \lambda e ^{-\lambda x}$$
+
+	and has the following expected value, variance, and standard deviation formulas
+
+	$$\mu = \sigma = \cfrac{1}{\lambda},~~V(X) = \sigma^2 = \cfrac{1}{\lambda^2}$$
+
+	The cdf for the exponential distribution pdf is 
+	$$ \forall x \in \mathbb{R}^+,~ F(x;\lambda) = 1 - e^{-\lambda x}$$
+
+	% ==========================================================================
+	% =============================== CHAPTER 5 ================================
+	% ==========================================================================
+
+	\section{Joint Probability}
+	\subsection{Join Probability Distributions and Random Samples}
+	\subsection{Expected Values, Covariance, an Correlation}
+	Let $X$ and $Y$ be jointly distributed rvs with a pmf $p(x, y) = P(X = x ^ Y = y)$ when they are 
+	discrete, or pdf $f(x, y)$ when continuous. Then the expected value is
+
+	$$ E[h(x,y)] = \sum_x\sum_y h(x, y)p(x, y)$$
+	if $X, Y$ are discrete or 
+	$$ E[h(x,y)] = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} h(x, y)f(x, y)dxdy$$
+	if they are continuous.
+
+	\textit{Covariance} measures how strongly correlated $X$ and $Y$ are to each other.
+	The formula for Covariance is 
+
+	$$ Cov(X, Y) = E[(X - \mu_X)(Y - \mu_Y)] $$
+	When $X$ and $Y$ are discrete, this turns into
+	$$ \sum_x\sum_y (x - \mu_X)(y - \mu_Y)p(x, y) $$
+	or 
+	$$ E[h(x,y)] = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} (x - \mu_X)(y - \mu_Y)f(x, y)dxdy$$
+	if they are continuous. This can be further reduced into the form
+
+    $$ Cov(X, Y) = E[XY] - E[X]E[Y] $$
+
+
+	The \textit{Correlation Coefficient} of $X, Y$, denoted as $Corr(X,Y)$ or $\rho_{X,Y}$ is
+	$$ \rho_{X,Y} = \cfrac{Cov(X,Y)}{\sigma_X * \sigma_Y} $$
+
+	\subsection{TODO}
+	\subsection{Sampling Distributions and the Central Limit Theorem}
+	
+	Given a population with an expected value $\mu_X$ and standard deviation $\sigma_X$,
+	the \textit{Central Limit Theorem} states that, for a sampling distribution with sample size $n$:
+	\begin{itemize}
+		\item as $n$ approaches infinity, the sampling distribution approaches a normal distribution;
+		\item The expected value is $E(\bar{X}) = \mu_{\bar{X}} = \mu_X$;
+		\item The standard deviation is $\sigma_{\bar{X}} = \cfrac{\sigma_X}{\sqrt{n}}$
+	\end{itemize}
+
+	There are a few requirements/restrictions for using the Central Limit Theorem.
+	Let $X_1, X_2, X_3, ..., X_i$ be the elements in the sample of size $n$. Then,
+	\begin{itemize}
+		\item Can only be used for $n \geq 30$;
+		\item Each $X_i$ must be independent from each other;
+		\item Each $X_i$ must have the same pdf
+	\end{itemize}
+
+	% ==========================================================================
+	% =============================== CHAPTER 6 ================================
+	% ==========================================================================
+
+	\section{Point Estimation}
+	\subsection{Point Estimators}
+	A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if 
+	$ E(\hat{\theta}) = \theta $
+
+	The point estimator for $\sigma$ is 
+
+	$$\hat{\sigma}^2 = S^2 = \cfrac{\sum (X_i - \bar{X})^2}{n-1} = \frac{1}{n-1}\Big[\sum X^2_i - \frac{(\sum X_i)^2}{n} \Big]$$
+	
+	The standard error of a point estimator is 
+
+	$$ \hat{\sigma} = \cfrac{\sigma}{\sqrt{n}}$$
+	for the point estimator $\hat{p}$, the standard error is 
+	$$ \hat{\sigma} = \sqrt{\cfrac{pq}{n}} $$
+	\subsection{Methods of Point Estimation}
+	Given the rvs $X_1, X_2, X_3, ..., X_n$ and $k > 0$, the kth population moment is
+	$$ m_k(X) = E(X^k) $$
+
+	% TODO finish chapter 6
+
+	% ==========================================================================
+	% =============================== CHAPTER 7 ================================
+	% ==========================================================================
+
+	\section{Chapter 7}
+	$\alpha$ = probability of error, $1 - \alpha$ = confidence interval.
+
+	Assuming the population has a normal distribution with a known $\sigma$,
+
+	$$ P[\mu - z_{\alpha/2} < \bar{X} < \mu + z_{\alpha/2}] = 1 - \alpha $$
+	$$ P\Big[\bar{X} - z_{\alpha/2}\big(\cfrac{\sigma}{\sqrt{n}}\big) < \mu < \bar{X} + z_{\alpha/2}\big(\cfrac{\sigma}{\sqrt{n}}\big)\Big] = 1 - \alpha $$
+	\end{flushleft}
+	\end{multicols*}
+
+	
+\end{document}
