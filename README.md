@@ -5,6 +5,8 @@
   </a>
 </div>
 
+<br>
+
 This is a study guide for students taking STAT 400 at the University of
 Maryland, College Park. It contains formulas and condensed descriptions
 of topics covered in each chapter.
