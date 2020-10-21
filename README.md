@@ -1,5 +1,12 @@
 # STAT 400 Study Guide
 
+<div align="center" style="display: flex; text-align: center !important; width: 100%; margin: auto;">
+  <h1>STAT 400 Study Guide</h1>
+  <a href="https://raw.githubusercontent.com/DonIsaac/STAT400-StudyGuide/master/sheet.pdf" download="stat-400-study-guide" style="font-weight: bold; text-decoration: underline;">
+    DOWNLOAD
+  </a>
+</div>
+
 This is a study guide for students taking STAT 400 at the University of
 Maryland, College Park. It contains formulas and condensed descriptions
 of topics covered in each chapter.
@@ -19,7 +26,7 @@ CLICK HERE TO DOWNLOAD THE STUDY GUIDE
 ### Option 2: cURL
 
 ```sh
-curl https://raw.githubusercontent.com/DonIsaac/STAT400-StudyGuide/master/sheet.pdf > stat400studyguide.pdf
+curl https://raw.githubusercontent.com/DonIsaac/STAT400-StudyGuide/master/sheet.pdf > stat-400-study-guide.pdf
 ```
 
 ## Setup
