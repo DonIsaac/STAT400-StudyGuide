@@ -1,5 +1,3 @@
-# STAT 400 Study Guide
-
 <div align="center" style="display: flex; text-align: center !important; width: 100%; margin: auto;">
   <h1>STAT 400 Study Guide</h1>
   <a href="https://raw.githubusercontent.com/DonIsaac/STAT400-StudyGuide/master/sheet.pdf" download="stat-400-study-guide" style="font-weight: bold; text-decoration: underline;">
